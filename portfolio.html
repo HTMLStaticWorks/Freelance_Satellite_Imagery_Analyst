@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | GEOINTEL Analytics</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-primary grid-bg">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                <span class="fw-bold">GEO<span class="text-info">INTEL</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                    <button class="btn btn-icon-circle" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars"></i>
+                    </button>
+                    <button class="btn btn-icon-circle" id="rtlToggle" title="Toggle RTL">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </button>
+                    <a href="dashboard.html" class="btn btn-icon-circle ms-1" title="Dashboard">
+                        <i class="bi bi-grid-1x2"></i>
+                    </a>
+                    <a href="login.html" class="btn btn-geo ms-2">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Case <span class="text-info">Studies</span></h1>
+            <p class="text-muted">Real-world applications of geospatial intelligence.</p>
+        </div>
+    </header>
+
+    <!-- Unique Portfolio Section 1: Spectral Signature Showcase -->
+    <section class="section-padding bg-dark overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h2 class="display-5 fw-bold text-white mb-4">Spectral <span class="text-info">Signature</span> Library</h2>
+                    <p class="text-muted fs-5 mb-4">Our repository contains thousands of unique spectral fingerprints for materials ranging from rare minerals to specific crop strains.</p>
+                    <div class="glass-panel p-4 border-info border-opacity-20">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="smaller text-info fw-bold">ID: REE_NEODYMIUM</span>
+                            <span class="smaller text-success">MATCH: 98.4%</span>
+                        </div>
+                        <div class="bg-primary rounded p-2" style="height: 60px;">
+                            <div class="w-100 h-100 opacity-20" style="background: repeating-linear-gradient(90deg, transparent, transparent 10px, var(--aurora-cyan) 11px);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="geo-card p-0 overflow-hidden border-info border-opacity-10 animate-pulse-cyan">
+                                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600" class="img-fluid" alt="Spectral 1">
+                            </div>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <div class="geo-card p-0 overflow-hidden border-info border-opacity-10">
+                                <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=600" class="img-fluid" alt="Spectral 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Portfolio Section 2: Resolution Intelligence Hub -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Resolution <span class="text-info">Intelligence</span> Hub</h2>
+                <p class="text-muted">Understanding the tactical difference between sensor constellations.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="geo-card text-center hover-lift border-info border-opacity-10 h-100">
+                        <div class="bg-dark rounded-4 mb-4 p-0 overflow-hidden position-relative" style="height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=400" class="w-100 h-100 object-fit-cover grayscale opacity-50" alt="10m Res">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <span class="badge bg-secondary">10M RES</span>
+                            </div>
+                        </div>
+                        <h5 class="text-info">Sentinel-2</h5>
+                        <p class="small text-muted mb-0">Regional monitoring and large-scale vegetation trends. Ideal for global environmental studies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="geo-card text-center hover-lift border-info border-opacity-10 h-100">
+                        <div class="bg-dark rounded-4 mb-4 p-0 overflow-hidden position-relative" style="height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=400" class="w-100 h-100 object-fit-cover opacity-75" alt="3m Res">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <span class="badge bg-info">3.7M RES</span>
+                            </div>
+                        </div>
+                        <h5 class="text-info">Planet Scope</h5>
+                        <p class="small text-muted mb-0">Daily global coverage at facility scale. Tracking supply chains and urban growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="geo-card text-center hover-lift border-info border-opacity-30 radar-glow h-100">
+                        <div class="bg-dark rounded-4 mb-4 p-0 overflow-hidden position-relative" style="height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?auto=format&fit=crop&q=80&w=400" class="w-100 h-100 object-fit-cover" alt="30cm Res">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <span class="badge bg-info">30CM RES</span>
+                            </div>
+                        </div>
+                        <h5 class="text-info">WorldView-3</h5>
+                        <p class="small text-muted mb-0">Tactical identification of vehicles and assets. Sub-meter precision for high-priority targets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Portfolio Section 4: Multisensor Data Fusion -->
+    <section class="section-padding bg-secondary bg-opacity-10 position-relative overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Multisensor <span class="text-info">Data Fusion</span></h2>
+                    <p class="text-muted fs-5 mb-5">Our proprietary fusion engine merges disparate data streams into a single source of truth, eliminating sensor-specific biases and blind spots.</p>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="bg-dark rounded-circle p-3 border border-info border-opacity-30 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                    <i class="bi bi-eye text-info h3 mb-0"></i>
+                                </div>
+                                <div class="smaller fw-bold text-white">OPTICAL</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="bg-dark rounded-circle p-3 border border-info border-opacity-30 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                    <i class="bi bi-broadcast text-info h3 mb-0"></i>
+                                </div>
+                                <div class="smaller fw-bold text-white">SAR_RADAR</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="bg-dark rounded-circle p-3 border border-info border-opacity-30 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                    <i class="bi bi-thermometer-half text-info h3 mb-0"></i>
+                                </div>
+                                <div class="smaller fw-bold text-white">THERMAL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footprint-container">
+                        <div class="footprint-map-frame rounded-4 overflow-hidden border border-info border-opacity-20 radar-glow">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200" class="img-fluid" alt="Data Fusion">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Portfolio Section 5: Operational Milestones -->
+    <section class="section-padding bg-dark position-relative">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 order-2 order-lg-1">
+                    <div class="bg-dark p-2 rounded-4 border border-info border-opacity-10 shadow-2xl position-relative">
+                        <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&q=80&w=1200" class="img-fluid rounded-3 opacity-75" alt="Mission Connectivity">
+                        <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
+                            <div class="display-3 fw-bold text-info animate-pulse">1.2M+</div>
+                            <div class="smaller text-white text-uppercase tracking-widest">SQUARE_KM_ANALYZED</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-1 order-lg-2 ps-lg-5">
+                    <h2 class="display-5 fw-bold text-white mb-5">Operational <span class="text-info">Milestones</span></h2>
+                    <div class="pipeline-container">
+                        <div class="pipeline-step pb-3">
+                            <h4 class="h5 text-info">2023: Global AOI Mesh</h4>
+                            <p class="text-muted small">Standardized daily revisit capacity across 500+ strategic AOIs.</p>
+                        </div>
+                        <div class="pipeline-step pb-3">
+                            <h4 class="h5 text-info">2024: Sub-Meter Neural Net</h4>
+                            <p class="text-muted small">Released version 4.0 of our feature extraction engine with 98% recall on vehicle classification.</p>
+                        </div>
+                        <div class="pipeline-step mb-0">
+                            <h4 class="h5 text-info">2025: Real-Time SAR Feed</h4>
+                            <p class="text-muted small">Direct integration with new X-band SAR constellations for near real-time dark-sky monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding bg-dark border-top border-info border-opacity-10 position-relative overflow-hidden">
+        <div class="grid-bg position-absolute top-0 start-0 w-100 h-100 opacity-10"></div>
+        <div class="container position-relative z-3">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="#">
+                        <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                        <span class="fw-bold text-white">GEO<span class="text-info">INTEL</span></span>
+                    </a>
+                    <p class="text-muted">Freelance Satellite Imagery Analyst providing professional geospatial intelligence and Earth observation analytics for global enterprises.</p>
+                    <div class="d-flex gap-2 mt-4 justify-content-lg-start justify-content-center">
+                        <a href="#" class="text-info fs-5 hover-glow"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-github"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Spectral Analysis</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">AOI Monitoring</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Mineral Mapping</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Urban Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="portfolio.html" class="text-muted text-decoration-none">Case Studies</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-muted text-decoration-none">Pricing</a></li>
+                        <li class="nav-item"><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p class="text-muted small">Stay updated with the latest in satellite technology and geospatial trends.</p>
+                    <form class="mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control bg-secondary border-0 text-white" placeholder="Email address">
+                            <button class="btn btn-geo" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-top border-info border-opacity-10 text-center">
+                <p class="text-muted small mb-0">&copy; 2026 GEOINTEL Satellite Analytics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Back to Top -->
+    <button class="btn btn-icon-circle position-fixed bottom-0 end-0 m-4 z-3 d-none shadow-lg" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

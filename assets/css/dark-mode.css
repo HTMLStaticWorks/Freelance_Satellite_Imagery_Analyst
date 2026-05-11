@@ -1,0 +1,29 @@
+/* 
+    ==================================================
+    AEROSPACE DARK MODE - SATELLITE INTELLIGENCE
+    ==================================================
+    This file contains specific refinements for the 
+    premium dark mode experience.
+*/
+
+:root {
+    --bg-primary: #06141f;
+    --bg-secondary: #0d2233;
+    --card-bg: #132d46;
+    --text-primary: #f4f9ff;
+    --text-muted: #b9c7d6;
+    --grid-glow: rgba(34, 211, 238, 0.16);
+}
+
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Specific dark mode glow enhancements */
+.geo-card:hover {
+    box-shadow: 0 0 25px var(--grid-glow);
+}
+
+.radar-glow::after {
+    opacity: 0.8;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | GEOINTEL</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-primary grid-bg">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                <span class="fw-bold">GEO<span class="text-info">INTEL</span></span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#">Details</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-icon-circle" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars"></i>
+                    </button>
+                    <button class="btn btn-icon-circle" id="rtlToggle" title="Toggle RTL">
+                        <i class="bi bi-translate"></i>
+                    </button>
+                    <a href="dashboard.html" class="btn btn-icon-circle ms-1" title="Dashboard">
+                        <i class="bi bi-grid-1x2"></i>
+                    </a>
+                    <a href="login.html" class="btn btn-geo ms-2">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Satellite Imagery <span class="text-info">Interpretation</span></h1>
+                    <div class="geo-card mb-5 p-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" class="img-fluid" alt="Interpretation">
+                    </div>
+                    
+                    <h3 class="h4 text-info mb-4">Workflow Explanation</h3>
+                    <p class="text-muted">Our interpretation process involves multi-stage verification using spectral unmixing and object-based image analysis (OBIA). We don't just look at pixels; we understand features.</p>
+                    
+                    <div class="accordion accordion-flush bg-transparent mt-5" id="serviceAccordion">
+                        <div class="accordion-item bg-transparent border-info border-opacity-10">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Spectral Methodology
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+                                <div class="accordion-body text-muted small">
+                                    We utilize over 200 spectral bands to identify material compositions and thermal signatures across any terrain.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-info border-opacity-10">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Resolution Guide
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+                                <div class="accordion-body text-muted small">
+                                    Compare our 30cm super-resolution imagery against standard 10m Sentinel data to see the tactical advantage.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="geo-card bg-secondary mb-4">
+                        <h4 class="h6 text-info mb-4">PRICING TIERS</h4>
+                        <div class="mb-3">
+                            <div class="small fw-bold">Standard Interpretation</div>
+                            <div class="text-info h5">$499</div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="small fw-bold">High-Res Tasking</div>
+                            <div class="text-info h5">$1,299</div>
+                        </div>
+                        <a href="pricing.html" class="text-muted small">View full comparison</a>
+                    </div>
+                    <div class="geo-card radar-glow">
+                        <h4 class="h6 mb-3 text-white">READY TO ANALYZE?</h4>
+                        <p class="smaller text-muted">Schedule a discovery call to discuss your AOI requirements.</p>
+                        <a href="contact.html" class="btn btn-geo w-100">Consult Analyst</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-padding bg-dark border-top border-info border-opacity-10 text-center">
+        <div class="container">
+            <p class="text-muted">&copy; 2024 GEOINTEL Satellite Analytics.</p>
+        </div>
+    </footer>
+
+<!-- Back to Top -->
+    <button class="btn btn-icon-circle position-fixed bottom-0 end-0 m-4 z-3 d-none shadow-lg" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

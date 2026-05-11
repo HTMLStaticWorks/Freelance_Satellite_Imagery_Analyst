@@ -1,0 +1,84 @@
+/* 
+    ==================================================
+    RTL SUPPORT - SATELLITE INTELLIGENCE
+    ==================================================
+*/
+
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: unset !important;
+}
+
+[dir="rtl"] .me-auto {
+    margin-left: auto !important;
+    margin-right: unset !important;
+}
+
+[dir="rtl"] .text-lg-start {
+    text-align: right !important;
+}
+
+[dir="rtl"] .dashboard-sidebar {
+    right: 0;
+    left: auto !important;
+    border-right: none !important;
+    border-left: 1px solid var(--grid-glow);
+}
+
+[dir="rtl"] .dashboard-header-fixed {
+    left: 0 !important;
+    right: 280px !important;
+}
+
+[dir="rtl"] .dashboard-content {
+    margin-right: 280px !important;
+    margin-left: 0 !important;
+}
+
+@media (max-width: 992px) {
+    [dir="rtl"] .dashboard-sidebar {
+        transform: translateX(100%);
+        left: auto !important;
+    }
+    [dir="rtl"] .dashboard-sidebar.active {
+        transform: translateX(0);
+    }
+    [dir="rtl"] .dashboard-header-fixed {
+        right: 0 !important;
+    }
+    [dir="rtl"] .dashboard-content {
+        margin-right: 0 !important;
+    }
+}
+
+[dir="rtl"] .dashboard-nav-link {
+    border-left: none !important;
+    border-right: 3px solid transparent;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .dashboard-nav-link i {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+[dir="rtl"] .dashboard-nav-link:hover, 
+[dir="rtl"] .dashboard-nav-link.active {
+    border-right-color: var(--aurora-cyan);
+}
+
+/* Icon Flipping for RTL */
+[dir="rtl"] .bi-arrow-right::before {
+    content: "\f12f"; /* bi-arrow-left */
+}
+[dir="rtl"] .bi-arrow-left::before {
+    content: "\f135"; /* bi-arrow-right */
+}
+[dir="rtl"] .bi-box-arrow-left::before {
+    content: "\f1a5"; /* bi-box-arrow-right */
+}

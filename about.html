@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | GEOINTEL Analytics</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-primary grid-bg">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                <span class="fw-bold">GEO<span class="text-info">INTEL</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                    <button class="btn btn-icon-circle" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars"></i>
+                    </button>
+                    <button class="btn btn-icon-circle" id="rtlToggle" title="Toggle RTL">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </button>
+                    <a href="dashboard.html" class="btn btn-icon-circle ms-1" title="Dashboard">
+                        <i class="bi bi-grid-1x2"></i>
+                    </a>
+                    <a href="login.html" class="btn btn-geo ms-2">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="section-padding position-relative overflow-hidden">
+        <div class="scan-line"></div>
+        <div class="container text-center py-5">
+            <h1 class="display-3 fw-bold mb-4">Behind The <span class="text-info">Lens</span></h1>
+            <p class="lead text-muted mx-auto" style="max-width: 800px;">Expert satellite imagery interpretation and geospatial intelligence for a rapidly changing world.</p>
+        </div>
+    </header>
+
+    <!-- Analyst Story -->
+    <section class="section-padding bg-secondary bg-opacity-30">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="position-relative overflow-hidden rounded-4 border border-info border-opacity-20 shadow-lg" style="max-height: 500px;">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Analyst" class="img-fluid w-100" style="height: 500px; object-fit: cover; object-position: center 20%;">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3 glass-panel border-0 rounded-0">
+                            <span class="smaller text-info fw-bold tracking-widest"><i class="bi bi-person-badge me-2"></i>SENIOR_ANALYST_ID: #4492</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="mb-4">The Analyst <span class="text-info">Story</span></h2>
+                    <p class="text-muted mb-4">With over 15 years of experience in remote sensing and geospatial data science, I bridge the gap between raw satellite signals and strategic decision-making.</p>
+                    <p class="text-muted mb-5">From monitoring illegal deforestation in the Amazon to optimizing industrial agricultural yields in the Midwest, my mission is to provide precision intelligence that matters.</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="h3 text-info fw-bold mb-0">15+</div>
+                            <div class="small text-muted">YEARS EXP</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="h3 text-info fw-bold mb-0">500+</div>
+                            <div class="small text-muted">PROJECTS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 1: The GEOINTEL Pipeline -->
+    <section class="section-padding bg-dark overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="footprint-container">
+                        <div class="footprint-map-frame rounded-4 overflow-hidden border border-info border-opacity-20 radar-glow">
+                            <img src="assets/images/workflow_2.png" class="img-fluid" alt="Data Pipeline">
+                            <div class="hotspot" style="top: 30%; left: 40%;"></div>
+                            <div class="hotspot" style="top: 60%; left: 70%;"></div>
+                            <div class="hotspot" style="top: 20%; left: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="display-5 fw-bold text-white mb-5">The GEOINTEL <span class="text-info">Pipeline</span></h2>
+                    <div class="pipeline-container">
+                        <div class="pipeline-step">
+                            <h4 class="h5 text-info">01. Signal Acquisition</h4>
+                            <p class="text-muted small">Direct downlink from multi-sensor constellations (SAR, Optical, Thermal).</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h4 class="h5 text-info">02. Neural Correction</h4>
+                            <p class="text-muted small">AI-driven atmospheric correction and cloud-masking for pixel purity.</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h4 class="h5 text-info">03. Spectral Analysis</h4>
+                            <p class="text-muted small">Application of proprietary indices (NDVI, EVI, NBR) for target identification.</p>
+                        </div>
+                        <div class="pipeline-step mb-0">
+                            <h4 class="h5 text-info">04. Tactical Delivery</h4>
+                            <p class="text-muted small">Secure API delivery of vectorized insights and decision-ready reports.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 2: Tactical Global Footprint -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h2 class="display-5 fw-bold mb-4">Global <span class="text-info">Operational</span> Footprint</h2>
+                    <p class="text-muted fs-5 mb-5">Our analytics engine monitors critical infrastructure and environmental shifts across every continent, 24 hours a day.</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="h2 fw-bold text-info mb-0">140+</div>
+                            <div class="smaller text-muted text-uppercase tracking-widest">Countries Covered</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="h2 fw-bold text-info mb-0">2.5PB</div>
+                            <div class="smaller text-muted text-uppercase tracking-widest">Data Processed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="position-relative">
+                        <div class="bg-dark p-2 rounded-4 border border-info border-opacity-10 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" class="img-fluid rounded-3 opacity-75" alt="Global Coverage">
+                        </div>
+                        <div class="position-absolute top-0 end-0 m-4 p-3 glass-panel border-info border-opacity-30 animate-pulse-cyan">
+                            <div class="smaller text-info fw-bold">NETWORK_SCAN: ACTIVE</div>
+                            <div class="text-white h6 mb-0">99.9% UPTIME_SYNC</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="h1">Geospatial <span class="text-info">Methodology</span></h2>
+                <p class="text-muted">A scientific approach to every pixel</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="geo-card h-100">
+                        <i class="bi bi-layers text-info fs-1 mb-4"></i>
+                        <h4>Layered Analysis</h4>
+                        <p class="text-muted">We overlay multi-spectral imagery with terrain models and socio-economic data for context.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="geo-card h-100">
+                        <i class="bi bi-shield-shaded text-info fs-1 mb-4"></i>
+                        <h4>Rigorous Validation</h4>
+                        <p class="text-muted">Every detection is cross-referenced with ground-truth data or secondary sensor confirmation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="geo-card h-100">
+                        <i class="bi bi-lightning-charge text-info fs-1 mb-4"></i>
+                        <h4>Rapid Deployment</h4>
+                        <p class="text-muted">Automation where possible, manual expertise where critical. Data arrives when you need it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding bg-dark border-top border-info border-opacity-10 position-relative overflow-hidden">
+        <div class="grid-bg position-absolute top-0 start-0 w-100 h-100 opacity-10"></div>
+        <div class="container position-relative z-3">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="#">
+                        <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                        <span class="fw-bold text-white">GEO<span class="text-info">INTEL</span></span>
+                    </a>
+                    <p class="text-muted">Freelance Satellite Imagery Analyst providing professional geospatial intelligence and Earth observation analytics for global enterprises.</p>
+                    <div class="d-flex gap-2 mt-4 justify-content-lg-start justify-content-center">
+                        <a href="#" class="text-info fs-5 hover-glow"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-github"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Spectral Analysis</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">AOI Monitoring</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Mineral Mapping</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Urban Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="portfolio.html" class="text-muted text-decoration-none">Case Studies</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-muted text-decoration-none">Pricing</a></li>
+                        <li class="nav-item"><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p class="text-muted small">Stay updated with the latest in satellite technology and geospatial trends.</p>
+                    <form class="mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control bg-secondary border-0 text-white" placeholder="Email address">
+                            <button class="btn btn-geo" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-top border-info border-opacity-10 text-center">
+                <p class="text-muted small mb-0">&copy; 2026 GEOINTEL Satellite Analytics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="btn btn-icon-circle position-fixed bottom-0 end-0 m-4 z-3 d-none shadow-lg" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

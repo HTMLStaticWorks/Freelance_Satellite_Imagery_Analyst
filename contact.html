@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | GEOINTEL Analytics</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-primary grid-bg">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                <span class="fw-bold">GEO<span class="text-info">INTEL</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                    <button class="btn btn-icon-circle" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars"></i>
+                    </button>
+                    <button class="btn btn-icon-circle" id="rtlToggle" title="Toggle RTL">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </button>
+                    <a href="dashboard.html" class="btn btn-icon-circle ms-1" title="Dashboard">
+                        <i class="bi bi-grid-1x2"></i>
+                    </a>
+                    <a href="login.html" class="btn btn-geo ms-2">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Request <span class="text-info">Consultation</span></h1>
+            <p class="text-muted">Secure inquiry portal for geospatial intelligence requirements.</p>
+        </div>
+    </header>
+
+    <section class="section-padding bg-secondary bg-opacity-30">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="geo-card">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small">Full Name</label>
+                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small">Organization</label>
+                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small">Email Address</label>
+                                    <input type="email" class="form-control bg-dark border-info border-opacity-25 text-white" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small">Project Description / AOI Coordinates</label>
+                                    <textarea class="form-control bg-dark border-info border-opacity-25 text-white" rows="5" required></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-geo w-100 py-3">Submit Secure Inquiry</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="geo-card mb-4">
+                        <h4 class="h6 mb-4">INTEL HUB</h4>
+                        <div class="d-flex gap-3 mb-4">
+                            <i class="bi bi-geo-alt text-info fs-4"></i>
+                            <div>
+                                <h5 class="small fw-bold mb-1">Global Headquarters</h5>
+                                <p class="smaller text-muted mb-0">San Francisco, CA, USA (Remote Operations)</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <i class="bi bi-envelope text-info fs-4"></i>
+                            <div>
+                                <h5 class="small fw-bold mb-1">Secure Email</h5>
+                                <p class="smaller text-muted mb-0">intel@geointel-analytics.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <i class="bi bi-phone text-info fs-4"></i>
+                            <div>
+                                <h5 class="small fw-bold mb-1">Direct Line</h5>
+                                <p class="smaller text-muted mb-0">+1 (555) 000-INTEL</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="geo-card bg-secondary">
+                        <h4 class="h6 mb-3">SOCIAL INTELLIGENCE</h4>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="text-info fs-5 hover-glow"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding bg-dark border-top border-info border-opacity-10 position-relative overflow-hidden">
+        <div class="grid-bg position-absolute top-0 start-0 w-100 h-100 opacity-10"></div>
+        <div class="container position-relative z-3">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="#">
+                        <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                        <span class="fw-bold text-white">GEO<span class="text-info">INTEL</span></span>
+                    </a>
+                    <p class="text-muted">Freelance Satellite Imagery Analyst providing professional geospatial intelligence and Earth observation analytics for global enterprises.</p>
+                    <div class="d-flex gap-2 mt-4 justify-content-lg-start justify-content-center">
+                        <a href="#" class="text-info fs-5 hover-glow"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-github"></i></a>
+                        <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Spectral Analysis</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">AOI Monitoring</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Mineral Mapping</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none">Urban Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="portfolio.html" class="text-muted text-decoration-none">Case Studies</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-muted text-decoration-none">Pricing</a></li>
+                        <li class="nav-item"><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p class="text-muted small">Stay updated with the latest in satellite technology and geospatial trends.</p>
+                    <form class="mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control bg-secondary border-0 text-white" placeholder="Email address">
+                            <button class="btn btn-geo" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-top border-info border-opacity-10 text-center">
+                <p class="text-muted small mb-0">&copy; 2026 GEOINTEL Satellite Analytics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- Back to Top -->
+    <button class="btn btn-icon-circle position-fixed bottom-0 end-0 m-4 z-3 d-none shadow-lg" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

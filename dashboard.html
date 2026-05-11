@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | GEOINTEL Analytics</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .dashboard-nav-link {
+            color: var(--text-muted);
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+        .dashboard-nav-link:hover, .dashboard-nav-link.active {
+            background: rgba(34, 211, 238, 0.05);
+            color: var(--aurora-cyan);
+            border-left-color: var(--aurora-cyan);
+        }
+        .sidebar-brand {
+            padding: 30px 25px;
+            border-bottom: 1px solid var(--grid-glow);
+            margin-bottom: 20px;
+        }
+        .dashboard-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .dashboard-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dashboard-header-fixed {
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            background: #06141f;
+            z-index: 1010;
+            border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+            padding: 20px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+        .dashboard-content {
+            margin-left: 280px;
+            padding: 40px;
+            padding-top: 120px; /* Space for the fixed header */
+            min-height: 100vh;
+        }
+        @media (max-width: 992px) {
+            .dashboard-header-fixed {
+                left: 0;
+                padding: 10px 15px;
+            }
+            .dashboard-header-fixed h1, .dashboard-header-fixed h2 {
+                font-size: 1.1rem !important;
+                letter-spacing: 0.5px;
+            }
+            .dashboard-content {
+                margin-left: 0;
+                padding: 20px;
+                padding-top: 80px;
+            }
+            .gap-3 {
+                gap: 0.75rem !important;
+            }
+            .gap-2 {
+                gap: 0.4rem !important;
+            }
+        }
+
+        /* Light Mode Overrides for Dashboard */
+        body.light-mode .dashboard-sidebar {
+            background: #ffffff;
+            border-right-color: #e2e8f0;
+        }
+        body.light-mode .dashboard-header-fixed {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom-color: #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        body.light-mode .dashboard-header-fixed h1 {
+            color: #1e293b !important;
+        }
+        body.light-mode .sidebar-brand {
+            border-bottom-color: #e2e8f0;
+        }
+        body.light-mode .sidebar-brand .text-white {
+            color: #000000 !important;
+        }
+        body.light-mode .dashboard-nav-link {
+            color: #475569;
+        }
+        body.light-mode .dashboard-nav-link:hover, 
+        body.light-mode .dashboard-nav-link.active {
+            background: rgba(34, 211, 238, 0.08);
+            color: var(--aurora-cyan);
+        }
+        body.light-mode .dashboard-nav-link i {
+            color: #64748b;
+        }
+        body.light-mode .dashboard-nav-link.active i {
+            color: var(--aurora-cyan);
+        }
+        body.light-mode .dashboard-nav-link.text-danger {
+            color: #ef4444 !important;
+        }
+
+        /* RTL Overrides */
+        [dir="rtl"] .dashboard-sidebar {
+            right: 0;
+            left: auto !important;
+            border-right: none !important;
+            border-left: 1px solid var(--grid-glow);
+        }
+        [dir="rtl"] .dashboard-header-fixed {
+            left: 0 !important;
+            right: 280px !important;
+        }
+        [dir="rtl"] .dashboard-content {
+            margin-left: 0 !important;
+            margin-right: 280px !important;
+        }
+        [dir="rtl"] .dashboard-nav-link {
+            border-left: none !important;
+            border-right: 3px solid transparent;
+            text-align: right;
+        }
+        [dir="rtl"] .dashboard-nav-link i {
+            margin-right: 0;
+            margin-left: 12px;
+        }
+        [dir="rtl"] .dashboard-nav-link.active {
+            border-right-color: var(--aurora-cyan);
+        }
+        [dir="rtl"] .ms-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+        [dir="rtl"] .ms-auto { margin-right: auto !important; margin-left: 0 !important; }
+        [dir="rtl"] .me-1 { margin-left: .25rem !important; margin-right: 0 !important; }
+        [dir="rtl"] .me-2 { margin-left: .5rem !important; margin-right: 0 !important; }
+        [dir="rtl"] .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
+        [dir="rtl"] .ms-1 { margin-right: .25rem !important; margin-left: 0 !important; }
+        [dir="rtl"] .ms-2 { margin-right: .5rem !important; margin-left: 0 !important; }
+        [dir="rtl"] .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
+        [dir="rtl"] .ps-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
+        [dir="rtl"] .pe-4 { padding-left: 1.5rem !important; padding-right: 0 !important; }
+        [dir="rtl"] .text-end { text-align: left !important; }
+        [dir="rtl"] .border-end { border-left: 1px solid rgba(34, 211, 238, 0.1) !important; border-right: none !important; }
+        [dir="rtl"] .border-start { border-right: 1px solid rgba(34, 211, 238, 0.1) !important; border-left: none !important; }
+        [dir="rtl"] .rounded-start-0 { border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; border-top-left-radius: .375rem !important; border-bottom-left-radius: .375rem !important; }
+
+        @media (max-width: 992px) {
+            [dir="rtl"] .dashboard-header-fixed {
+                right: 0 !important;
+            }
+            [dir="rtl"] .dashboard-content {
+                margin-right: 0 !important;
+            }
+            [dir="rtl"] .dashboard-sidebar {
+                transform: translateX(100%);
+            }
+            [dir="rtl"] .dashboard-sidebar.active {
+                transform: translateX(0);
+            }
+        }
+
+        /* Input & Placeholder Visibility */
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.45) !important;
+            opacity: 1; /* Firefox */
+        }
+        body.light-mode ::placeholder {
+            color: rgba(30, 41, 59, 0.5) !important;
+        }
+        body.light-mode .input-group-text {
+            background-color: #f1f5f9 !important;
+            color: #475569 !important;
+        }
+
+        /* Table Theme Overrides */
+        .geo-table-row {
+            background: #0b1a26 !important;
+            border: 1px solid rgba(34, 211, 238, 0.1);
+            transition: all 0.3s ease;
+        }
+        .geo-table-row:hover {
+            background: #0f2433 !important;
+            transform: translateY(-1px);
+        }
+        body.light-mode .geo-table-row {
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
+        }
+        body.light-mode .geo-table-row:hover {
+            background: #f8fafc !important;
+            transform: none !important;
+        }
+        body.light-mode .table thead tr {
+            background: rgba(34, 211, 238, 0.08) !important;
+        }
+        body.light-mode .table td {
+            color: #475569 !important;
+        }
+        body.light-mode .table td.text-white {
+            color: #1e293b !important;
+        }
+        body.light-mode .table th {
+            color: var(--aurora-cyan) !important;
+        }
+        body.light-mode .chat-header-name {
+            color: #1e293b !important;
+        }
+        body.light-mode .list-group-item-action:not(.active) .fw-bold {
+            color: #1e293b !important;
+        }
+        body.light-mode .bg-secondary.bg-opacity-20 {
+            background-color: #f8fafc !important;
+        }
+        
+        /* Fix for table background bleeding */
+        .table {
+            --bs-table-bg: transparent !important;
+            border-collapse: separate !important;
+            border-spacing: 0 12px !important;
+        }
+        .table thead tr.text-info {
+            color: var(--aurora-cyan) !important;
+        }
+        body.light-mode .table thead tr.text-info {
+            color: #475569 !important;
+        }
+        
+        /* Badge visibility in light mode */
+        body.light-mode .badge.bg-opacity-10 {
+            background-color: rgba(var(--bs-info-rgb), 0.15) !important;
+        }
+        body.light-mode .badge.bg-danger.bg-opacity-10 {
+            background-color: rgba(239, 68, 68, 0.15) !important;
+            color: #b91c1c !important;
+        }
+        body.light-mode .badge.bg-warning.bg-opacity-10 {
+            background-color: rgba(234, 179, 8, 0.15) !important;
+            color: #a16207 !important;
+        }
+        body.light-mode .badge.bg-success.bg-opacity-10 {
+            background-color: rgba(34, 197, 94, 0.15) !important;
+            color: #15803d !important;
+        }
+        body.light-mode .badge.bg-info.bg-opacity-10 {
+            background-color: rgba(6, 182, 212, 0.15) !important;
+            color: #0891b2 !important;
+        }
+
+        /* Alert visibility in light mode */
+        body.light-mode .alert.bg-info.bg-opacity-10 {
+            background-color: rgba(6, 182, 212, 0.1) !important;
+            border-color: rgba(6, 182, 212, 0.2) !important;
+        }
+        body.light-mode .alert.bg-info.bg-opacity-10 .text-info {
+            color: #0891b2 !important;
+        }
+
+        /* Simulated Components Visibility */
+        body.light-mode .bg-dark.bg-opacity-50,
+        body.light-mode .bg-dark {
+            background-color: #f8fafc !important;
+            border-color: #e2e8f0 !important;
+        }
+        
+        .trend-bar {
+            width: 30px;
+            margin: 0 auto;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-mode .bg-info.bg-opacity-20 { background-color: rgba(8, 145, 178, 0.4) !important; }
+        body.light-mode .bg-info.bg-opacity-40 { background-color: rgba(8, 145, 178, 0.5) !important; }
+        body.light-mode .bg-info.bg-opacity-60 { background-color: rgba(8, 145, 178, 0.7) !important; }
+        body.light-mode .bg-info.bg-opacity-80 { background-color: rgba(8, 145, 178, 0.8) !important; }
+        
+        body.light-mode .text-muted {
+            color: #475569 !important;
+        }
+    </style>
+</head>
+<body class="bg-primary">
+
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-brand d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-broadcast text-info me-2 fs-3"></i>
+                <span class="fw-bold text-white">GEO<span class="text-info">INTEL</span></span>
+            </a>
+            <button class="btn btn-icon-circle btn-sm d-lg-none" id="closeSidebar" title="Close Menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <nav class="nav flex-column">
+            <a href="#" class="dashboard-nav-link active" data-section="overview">
+                <i class="bi bi-speedometer2"></i> Dashboard Overview
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="upload">
+                <i class="bi bi-plus-square"></i> Upload AOI Coordinates
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="reports">
+                <i class="bi bi-file-earmark-bar-graph"></i> Change Detection Reports
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="vegetation">
+                <i class="bi bi-tree"></i> Vegetation Indices
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="imagery">
+                <i class="bi bi-image"></i> Annotated Imagery
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="tracking">
+                <i class="bi bi-graph-up"></i> Time-Series Tracking
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="downloads">
+                <i class="bi bi-download"></i> Downloads
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="messages">
+                <i class="bi bi-chat-dots"></i> Messages <span class="badge bg-danger ms-auto">3</span>
+            </a>
+            <a href="#" class="dashboard-nav-link" data-section="settings">
+                <i class="bi bi-gear"></i> Settings
+            </a>
+            <hr class="border-info border-opacity-10 mx-3">
+            <a href="index.html" class="dashboard-nav-link text-danger">
+                <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-content">
+        <header class="dashboard-header-fixed">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-icon-circle d-lg-none" id="sidebarToggle" title="Toggle Sidebar">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1 class="h2 fw-bold text-white mb-0">DASHBOARD</h1>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-icon-circle" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars"></i>
+                    </button>
+                    <button class="btn btn-icon-circle" id="rtlToggle" title="Toggle RTL">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </button>
+                    <a href="#" class="btn btn-icon-circle ms-1" title="Profile">
+                        <i class="bi bi-person-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. OVERVIEW -->
+        <section id="overview" class="dashboard-section active">
+            <!-- Welcome Message -->
+            <div class="geo-card mb-4 border-info border-opacity-25 bg-secondary bg-opacity-20">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2 class="h4 text-white mb-2">Welcome Back, <span class="text-info">Lead Analyst</span></h2>
+                        <p class="text-muted mb-0">Your satellite constellations are synchronized and data processing pipelines are at peak efficiency.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <div class="text-info small">Last Login: 2026-05-11 | 20:59 GMT</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="h4 mb-0">System <span class="text-info">Overview</span></h2>
+            </div>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="geo-card">
+                        <div class="text-muted small mb-2">ACTIVE PROJECTS</div>
+                        <div class="h3 mb-0">12</div>
+                        <div class="progress mt-3" style="height: 4px; background: rgba(34,211,238,0.1);">
+                            <div class="progress-bar bg-info" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="geo-card">
+                        <div class="text-muted small mb-2">AOI MONITORED</div>
+                        <div class="h3 mb-0">458 km²</div>
+                        <div class="progress mt-3" style="height: 4px; background: rgba(34,211,238,0.1);">
+                            <div class="progress-bar bg-success" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="geo-card">
+                        <div class="text-muted small mb-2">DETECTIONS (24H)</div>
+                        <div class="h3 mb-0">24</div>
+                        <div class="progress mt-3" style="height: 4px; background: rgba(34,211,238,0.1);">
+                            <div class="progress-bar bg-warning" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="geo-card">
+                        <div class="text-muted small mb-2">STORAGE USED</div>
+                        <div class="h3 mb-0">1.2 TB</div>
+                        <div class="progress mt-3" style="height: 4px; background: rgba(34,211,238,0.1);">
+                            <div class="progress-bar bg-danger" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="geo-card h-100 radar-glow">
+                        <h3 class="h6 mb-4">ACTIVE AOI HEATMAP</h3>
+                        <div class="bg-dark rounded overflow-hidden border border-info border-opacity-10" style="height: 400px;">
+                            <img src="assets/images/heatmap_viz.png" class="img-fluid w-100 h-100 object-fit-cover" alt="AOI Heatmap">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="geo-card h-100">
+                        <h3 class="h6 mb-4">RECENT ACTIVITY</h3>
+                        <div class="timeline">
+                            <div class="d-flex gap-3 mb-4">
+                                <div class="bg-info rounded-circle" style="width: 10px; height: 10px; flex-shrink: 0; margin-top: 5px;"></div>
+                                <div>
+                                    <div class="small fw-bold">NDVI Report Generated</div>
+                                    <div class="smaller text-muted">Amazon Basin Area B</div>
+                                    <div class="smaller text-info">2 mins ago</div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-3 mb-4">
+                                <div class="bg-warning rounded-circle" style="width: 10px; height: 10px; flex-shrink: 0; margin-top: 5px;"></div>
+                                <div>
+                                    <div class="small fw-bold">Anomalous Change Detected</div>
+                                    <div class="smaller text-muted">Arctic Ice Shelf Sector 4</div>
+                                    <div class="smaller text-info">45 mins ago</div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-3">
+                                <div class="bg-success rounded-circle" style="width: 10px; height: 10px; flex-shrink: 0; margin-top: 5px;"></div>
+                                <div>
+                                    <div class="small fw-bold">New Satellite Pass Sync</div>
+                                    <div class="smaller text-muted">Landsat-9 Integration</div>
+                                    <div class="smaller text-info">2 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. UPLOAD AOI -->
+        <section id="upload" class="dashboard-section">
+            <h2 class="h4 mb-4">Upload <span class="text-info">AOI Coordinates</span></h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="geo-card h-100">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small">Project Name</label>
+                                <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" placeholder="e.g. Corn Belt Monitoring">
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <label class="form-label small">Latitude</label>
+                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" placeholder="40.7128">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small">Longitude</label>
+                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" placeholder="-74.0060">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small">Upload GeoJSON / KML</label>
+                                <div class="border border-info border-dashed rounded p-4 text-center">
+                                    <i class="bi bi-cloud-arrow-up fs-2 text-info"></i>
+                                    <p class="small text-muted mt-2">Drag and drop file here or click to browse</p>
+                                    <input type="file" class="d-none" id="fileInput">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-geo w-100 mt-auto">Initialize Analysis</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="geo-card h-100 bg-secondary bg-opacity-20">
+                        <h3 class="h6 text-info mb-3">COORDINATE VALIDATION</h3>
+                        <p class="small text-muted">Ensure your coordinates are in WGS84 format. Supported formats: .json, .kml, .geojson</p>
+                        <ul class="small text-muted ps-3">
+                            <li>Max area per AOI: 5000 km²</li>
+                            <li>Minimum resolution: 3m (PlanetScope)</li>
+                            <li>Spectral bands: RGB, NIR, RedEdge</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CHANGE DETECTION -->
+        <section id="reports" class="dashboard-section">
+            <h2 class="h4 mb-4">Change <span class="text-info">Detection Reports</span></h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="geo-card">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="h6">Dubai Urban Expansion</h5>
+                            <span class="badge bg-info">HIGH RES</span>
+                        </div>
+                        <div class="position-relative mb-3 overflow-hidden rounded">
+                            <img src="assets/images/change-detection.png" alt="Before" class="img-fluid">
+                            <div class="position-absolute top-0 end-0 p-2 glass-panel m-2">Before</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Nov 2023 - May 2024</span>
+                            <a href="#" class="text-info small text-decoration-none">View Full Report <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="geo-card">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="h6">Amazon Deforestation</h5>
+                            <span class="badge bg-danger">ALERT</span>
+                        </div>
+                        <div class="position-relative mb-3 overflow-hidden rounded">
+                            <img src="assets/images/hero.png" alt="After" class="img-fluid">
+                            <div class="position-absolute top-0 end-0 p-2 glass-panel m-2 bg-danger bg-opacity-20 border-danger">After</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Jan 2024 - Apr 2024</span>
+                            <a href="#" class="text-info small text-decoration-none">View Full Report <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vegetation" class="dashboard-section">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+                <h2 class="h4 mb-0 text-uppercase tracking-wider">Vegetation <span class="text-info">Indices (NDVI)</span></h2>
+                <div class="d-flex gap-2 w-100 w-md-auto">
+                    <button class="btn btn-sm btn-outline-geo flex-fill"><i class="bi bi-download me-1"></i> Export PDF</button>
+                    <button class="btn btn-sm btn-geo flex-fill"><i class="bi bi-plus-lg me-1"></i> New Analysis</button>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <div class="geo-card h-100 text-center d-flex flex-column justify-content-center py-4">
+                        <h3 class="h6 mb-3 text-uppercase opacity-75">Current Health Score</h3>
+                        <div class="display-3 text-success fw-bold mb-2">0.78</div>
+                        <div class="badge bg-success bg-opacity-10 text-success px-3 py-2 mb-3 align-self-center">HIGH VITALITY</div>
+                        <p class="small text-muted px-4">Optimal biomass density detected across 85% of the monitored area.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="geo-card h-100">
+                        <h3 class="h6 mb-4 text-uppercase opacity-75">Historical NDVI Trend (6 Months)</h3>
+                        <div class="bg-dark bg-opacity-50 rounded p-4 border border-info border-opacity-10" style="height: 250px;">
+                            <div class="d-flex align-items-end justify-content-between h-100 px-2">
+                                <div class="text-center h-100 d-flex flex-column justify-content-end" style="width: 15%;">
+                                    <div class="bg-info bg-opacity-20 trend-bar" style="height: 40%;"></div>
+                                    <div class="smaller text-muted mt-2">JAN</div>
+                                </div>
+                                <div class="text-center h-100 d-flex flex-column justify-content-end" style="width: 15%;">
+                                    <div class="bg-info bg-opacity-40 trend-bar" style="height: 60%;"></div>
+                                    <div class="smaller text-muted mt-2">FEB</div>
+                                </div>
+                                <div class="text-center h-100 d-flex flex-column justify-content-end" style="width: 15%;">
+                                    <div class="bg-info bg-opacity-60 trend-bar" style="height: 80%;"></div>
+                                    <div class="smaller text-muted mt-2">MAR</div>
+                                </div>
+                                <div class="text-center h-100 d-flex flex-column justify-content-end" style="width: 15%;">
+                                    <div class="bg-info bg-opacity-80 trend-bar" style="height: 70%;"></div>
+                                    <div class="smaller text-muted mt-2">APR</div>
+                                </div>
+                                <div class="text-center h-100 d-flex flex-column justify-content-end" style="width: 15%;">
+                                    <div class="bg-info trend-bar" style="height: 90%;"></div>
+                                    <div class="smaller text-muted mt-2">MAY</div>
+                                </div>
+                                <div class="text-center h-100 d-flex flex-column justify-content-end" style="width: 15%;">
+                                    <div class="bg-info trend-bar pulse-cyan" style="height: 85%;"></div>
+                                    <div class="smaller text-info fw-bold mt-2">JUN</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="geo-card">
+                        <h3 class="h6 mb-4 text-uppercase opacity-75">NDVI Spatial Analysis Heatmap</h3>
+                        <div class="position-relative rounded overflow-hidden border border-info border-opacity-10">
+                            <img src="assets/images/vegetation_heatmap.png" alt="NDVI Heatmap" class="img-fluid w-100" style="filter: brightness(0.9);">
+                            <div class="position-absolute bottom-0 start-0 m-3 glass-panel p-3 border-info border-opacity-25 shadow-lg">
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <div style="width: 12px; height: 12px; background: #22c55e;"></div>
+                                    <span class="smaller text-white">Dense Vegetation (>0.7)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <div style="width: 12px; height: 12px; background: #eab308;"></div>
+                                    <span class="smaller text-white">Sparse Vegetation (0.3 - 0.7)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div style="width: 12px; height: 12px; background: #ef4444;"></div>
+                                    <span class="smaller text-white">Barren Soil (<0.3)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="geo-card h-100">
+                        <h3 class="h6 mb-4 text-uppercase opacity-75">Vegetation Breakdown</h3>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span>Coniferous Forest</span>
+                                <span class="text-info">42%</span>
+                            </div>
+                            <div class="progress" style="height: 6px; background: rgba(34,211,238,0.1);">
+                                <div class="progress-bar bg-success" style="width: 42%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span>Deciduous Forest</span>
+                                <span class="text-info">31%</span>
+                            </div>
+                            <div class="progress" style="height: 6px; background: rgba(34,211,238,0.1);">
+                                <div class="progress-bar bg-info" style="width: 31%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span>Shrubland / Grass</span>
+                                <span class="text-info">18%</span>
+                            </div>
+                            <div class="progress" style="height: 6px; background: rgba(34,211,238,0.1);">
+                                <div class="progress-bar bg-warning" style="width: 18%;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span>Wetlands</span>
+                                <span class="text-info">9%</span>
+                            </div>
+                            <div class="progress" style="height: 6px; background: rgba(34,211,238,0.1);">
+                                <div class="progress-bar bg-danger" style="width: 9%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert bg-info bg-opacity-10 border border-info border-opacity-25 mt-4 py-3">
+                            <div class="d-flex gap-3 align-items-center">
+                                <i class="bi bi-info-circle-fill text-info fs-5"></i>
+                                <p class="smaller text-info opacity-75 mb-0">NDVI values updated 2 hours ago via Sentinel-2 mission pass.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="imagery" class="dashboard-section">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+                <h2 class="h4 mb-0 text-uppercase tracking-wider">Annotated <span class="text-info">Imagery Gallery</span></h2>
+                <button class="btn btn-sm btn-outline-geo w-100 w-md-auto">Select All</button>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="geo-card p-0 overflow-hidden h-100 shadow-hover">
+                        <div class="position-relative">
+                            <img src="assets/images/annotated_1.png" class="img-fluid" alt="Annotation 1">
+                            <div class="position-absolute top-0 end-0 m-2 badge bg-info">NEW</div>
+                        </div>
+                        <div class="p-3">
+                            <h6 class="small mb-1 text-white">Urban Expansion B-2</h6>
+                            <p class="smaller text-muted mb-2">14 Objects Detected</p>
+                            <a href="#" class="btn btn-sm btn-geo w-100 py-1">Analyze</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="geo-card p-0 overflow-hidden h-100 shadow-hover">
+                        <img src="assets/images/annotated_2.png" class="img-fluid" alt="Annotation 2">
+                        <div class="p-3">
+                            <h6 class="small mb-1 text-white">Orbit Scan X-99</h6>
+                            <p class="smaller text-muted mb-2">Atmospheric Correction Applied</p>
+                            <a href="#" class="btn btn-sm btn-geo w-100 py-1">Analyze</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="geo-card p-0 overflow-hidden h-100 shadow-hover">
+                        <img src="assets/images/vegetation_heatmap.png" class="img-fluid" alt="Annotation 3">
+                        <div class="p-3">
+                            <h6 class="small mb-1 text-white">NDVI Analysis Unit 4</h6>
+                            <p class="smaller text-muted mb-2">8 High-Vitality Sectors</p>
+                            <a href="#" class="btn btn-sm btn-geo w-100 py-1">Analyze</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="geo-card p-0 overflow-hidden h-100 shadow-hover">
+                        <img src="assets/images/tracking_viz.png" class="img-fluid" alt="Annotation 4">
+                        <div class="p-3">
+                            <h6 class="small mb-1 text-white">Temporal Delta Map</h6>
+                            <p class="smaller text-muted mb-2">3 Change Vectors Detected</p>
+                            <a href="#" class="btn btn-sm btn-geo w-100 py-1">Analyze</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tracking" class="dashboard-section">
+            <h2 class="h4 mb-4">Time-Series <span class="text-info">Tracking</span></h2>
+            <div class="geo-card radar-glow p-0 overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-lg-8">
+                        <img src="assets/images/tracking_viz.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Tracking Analysis" style="max-height: 400px;">
+                    </div>
+                    <div class="col-lg-4 p-4 d-flex flex-column justify-content-center">
+                        <div class="badge bg-info bg-opacity-10 text-info px-3 py-2 mb-3 align-self-start border border-info border-opacity-25">ACTIVE TRACKING</div>
+                        <h3 class="h5 text-white mb-3">AOI: AMAZON_BASIN_04</h3>
+                        <p class="small text-muted mb-4">Analyzing temporal delta across 1,420 historical tiles. Change detection vectors are being calculated in real-time.</p>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between smaller mb-1">
+                                <span>Processing Multi-Spectral Data</span>
+                                <span class="text-info">84%</span>
+                            </div>
+                            <div class="progress" style="height: 4px; background: rgba(34,211,238,0.1);">
+                                <div class="progress-bar bg-info" style="width: 84%;"></div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-geo w-100">Pause Analysis</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="downloads" class="dashboard-section">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+                <h2 class="h4 mb-0 text-uppercase tracking-wider">Export <span class="text-info">Data Center</span></h2>
+                <div class="smaller text-muted"><i class="bi bi-info-circle me-1"></i> Data retained for 30 days</div>
+            </div>
+
+            <div class="table-responsive p-0">
+                <table class="table table-hover mb-0 align-middle text-nowrap" style="min-width: 900px; border-collapse: separate; border-spacing: 0 12px;">
+                    <thead>
+                        <tr class="bg-info bg-opacity-10 text-info smaller text-uppercase tracking-widest fw-bold">
+                            <th class="ps-4 py-3 border-0 text-info">Asset Name</th>
+                            <th class="py-3 border-0 text-info">Format</th>
+                            <th class="py-3 border-0 text-info">File Size</th>
+                            <th class="py-3 border-0 text-info">Generation Timestamp</th>
+                            <th class="text-center py-3 border-0 text-info">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody style="border-top: none;">
+                        <tr class="geo-table-row shadow-sm">
+                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-pdf text-danger me-2 fs-5"></i>NDVI_Amazon_B_Full.pdf</td>
+                            <td class="py-3 border-0"><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-3 py-2">PDF</span></td>
+                            <td class="py-3 border-0 text-muted">4.2 MB</td>
+                            <td class="py-3 border-0 text-muted small">May 10, 2024 | 14:22 GMT</td>
+                            <td class="text-center py-3 border-0">
+                                <button class="btn btn-icon-circle btn-sm shadow-sm mx-auto"><i class="bi bi-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="geo-table-row shadow-sm">
+                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-zip text-warning me-2 fs-5"></i>Terrain_Dubai_Mesh.zip</td>
+                            <td class="py-3 border-0"><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 px-3 py-2">ZIP</span></td>
+                            <td class="py-3 border-0 text-muted">128 MB</td>
+                            <td class="py-3 border-0 text-muted small">May 08, 2024 | 09:12 GMT</td>
+                            <td class="text-center py-3 border-0">
+                                <button class="btn btn-icon-circle btn-sm shadow-sm mx-auto"><i class="bi bi-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="geo-table-row shadow-sm">
+                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-spreadsheet text-success me-2 fs-5"></i>Crop_Yield_Report_2024.csv</td>
+                            <td class="py-3 border-0"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2">CSV</span></td>
+                            <td class="py-3 border-0 text-muted">1.8 MB</td>
+                            <td class="py-3 border-0 text-muted small">May 05, 2024 | 16:45 GMT</td>
+                            <td class="text-center py-3 border-0">
+                                <button class="btn btn-icon-circle btn-sm shadow-sm mx-auto"><i class="bi bi-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="geo-table-row shadow-sm">
+                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-image text-info me-2 fs-5"></i>Sector_G_Annotated.tiff</td>
+                            <td class="py-3 border-0"><span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 px-3 py-2">TIFF</span></td>
+                            <td class="py-3 border-0 text-muted">45.5 MB</td>
+                            <td class="py-3 border-0 text-muted small">May 02, 2024 | 11:30 GMT</td>
+                            <td class="text-center py-3 border-0">
+                                <button class="btn btn-icon-circle btn-sm shadow-sm mx-auto"><i class="bi bi-download"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="messages" class="dashboard-section">
+            <h2 class="h4 mb-4">Intelligence <span class="text-info">Command Center</span></h2>
+            <div class="geo-card p-0 overflow-hidden" style="height: 600px;">
+                <div class="d-flex h-100">
+                    <!-- Sidebar -->
+                    <div class="border-end border-info border-opacity-10 w-25 d-none d-md-block bg-secondary bg-opacity-20">
+                        <div class="p-3 border-bottom border-info border-opacity-10">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-dark border-0 text-muted"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control bg-dark border-0 text-white" placeholder="Search Intelligence...">
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush overflow-auto">
+                            <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-bottom border-info border-opacity-10 p-3 active">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="fw-bold small">Support Team</span>
+                                    <span class="smaller opacity-50">10:45</span>
+                                </div>
+                                <div class="smaller text-muted text-truncate">Preliminary analysis is complete...</div>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-bottom border-info border-opacity-10 p-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="fw-bold small">Orbital Ops</span>
+                                    <span class="smaller opacity-50">09:12</span>
+                                </div>
+                                <div class="smaller text-muted text-truncate">Satellite synchronization verified.</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Area -->
+                    <div class="flex-grow-1 d-flex flex-column">
+                        <div class="p-3 border-bottom border-info border-opacity-10 d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="position-relative me-3">
+                                    <div class="bg-info bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; border: 1px solid rgba(34, 211, 238, 0.4);">
+                                        <i class="bi bi-headset fs-4 text-white"></i>
+                                    </div>
+                                    <span class="position-absolute bottom-0 end-0 bg-success border border-dark rounded-circle" style="width: 12px; height: 12px;"></span>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-white small chat-header-name">Intelligence Support Team</div>
+                                    <div class="smaller text-success">Online</div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-icon-circle"><i class="bi bi-telephone"></i></button>
+                                <button class="btn btn-sm btn-icon-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-grow-1 p-4 overflow-auto d-flex flex-column gap-4 bg-dark bg-opacity-10">
+                            <div class="d-flex flex-column align-items-start">
+                                <div class="bg-secondary p-3 rounded-3 rounded-start-0 border border-info border-opacity-10" style="max-width: 70%;">
+                                    <p class="small mb-0 text-white">Hello John, we've completed the preliminary NDVI analysis for your requested coordinates in the Amazon Basin.</p>
+                                </div>
+                                <div class="smaller text-muted mt-2">10:42 AM</div>
+                            </div>
+                            
+                            <div class="d-flex flex-column align-items-start">
+                                <div class="bg-secondary p-3 rounded-3 rounded-start-0 border border-info border-opacity-10" style="max-width: 70%;">
+                                    <p class="small mb-0 text-white">Please check the 'Vegetation Indices' tab for the full spatial heatmap and land-use breakdown. Let us know if you need high-res TIFF exports.</p>
+                                </div>
+                                <div class="smaller text-muted mt-2">10:45 AM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-3 border-top border-info border-opacity-10">
+                            <div class="input-group">
+                                <button class="btn btn-icon-circle me-2"><i class="bi bi-paperclip"></i></button>
+                                <input type="text" class="form-control bg-dark border-0 text-white px-3" placeholder="Type your intelligence request...">
+                                <button class="btn btn-geo ms-2 px-4"><i class="bi bi-send-fill"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. SETTINGS -->
+        <section id="settings" class="dashboard-section">
+            <h2 class="h4 mb-4">Account <span class="text-info">Command Center</span></h2>
+            
+            <div class="row g-4">
+                <!-- Left Column: Profile & Security -->
+                <div class="col-lg-8">
+                    <div class="geo-card mb-4">
+                        <h5 class="h6 mb-4 text-uppercase opacity-75">Personal Intelligence Profile</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small">Full Name</label>
+                                <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" value="John Analyst">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small">Intelligence Role</label>
+                                <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" value="Lead Geospatial Analyst" readonly>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label small">Email Address</label>
+                                <input type="email" class="form-control bg-dark border-info border-opacity-25 text-white" value="john.analyst@geointel.com">
+                            </div>
+                        </div>
+                        <hr class="my-4 border-info border-opacity-10">
+                        <h5 class="h6 mb-4 text-uppercase opacity-75">Security & Access</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small">New Password</label>
+                                <input type="password" class="form-control bg-dark border-info border-opacity-25 text-white" placeholder="••••••••">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small">Confirm Password</label>
+                                <input type="password" class="form-control bg-dark border-info border-opacity-25 text-white" placeholder="••••••••">
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center text-md-start">
+                            <button class="btn btn-geo px-5 w-100 w-md-auto">Update Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="geo-card">
+                        <h5 class="h6 mb-4 text-uppercase opacity-75">API Credentials</h5>
+                        <p class="small text-muted mb-4">Use these keys to integrate GEOINTEL analytics into your own GIS pipelines.</p>
+                        <div class="mb-3">
+                            <label class="form-label small">Production API Key</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" value="gk_prod_9928_x_4410_ak2" readonly>
+                                <button class="btn btn-outline-geo"><i class="bi bi-copy"></i></button>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-sm btn-outline-geo">Regenerate Key</button>
+                            <button class="btn btn-sm btn-outline-geo">View Documentation</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Preferences & Subscription -->
+                <div class="col-lg-4 d-flex flex-column">
+                    <div class="geo-card mb-4">
+                        <h5 class="h6 mb-4 text-uppercase opacity-75">Notifications</h5>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" checked>
+                            <label class="form-check-label small">Satellite Pass Alerts</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" checked>
+                            <label class="form-check-label small">NDVI Threshold Alerts</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label small">Change Detection Reports</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" checked>
+                            <label class="form-check-label small">System Maintenance</label>
+                        </div>
+                    </div>
+
+                    <div class="geo-card mb-4 bg-secondary bg-opacity-20 border-info border-opacity-25">
+                        <h5 class="h6 mb-3 text-uppercase opacity-75">Subscription Plan</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="badge bg-info text-dark fw-bold px-3 py-2">ENTERPRISE PLUS</div>
+                            <span class="text-white fw-bold">$499/mo</span>
+                        </div>
+                        <p class="smaller text-muted mb-4">Next billing date: June 15, 2024. Your plan includes unlimited AOI monitoring and high-res TIFF exports.</p>
+                        <button class="btn btn-geo w-100 py-2">Manage Subscription</button>
+                    </div>
+
+                    <div class="geo-card mb-4">
+                        <h5 class="h6 mb-4 text-uppercase opacity-75">System Health</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="smaller text-muted">API Uptime</span>
+                            <span class="text-success small fw-bold">99.98%</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="smaller text-muted">Satellite Latency</span>
+                            <span class="text-info small fw-bold">24ms</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="smaller text-muted">Processing Load</span>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="smaller text-info">NORMAL</span>
+                                <div class="spinner-grow spinner-grow-sm text-info" role="status" style="width: 10px; height: 10px;"></div>
+                            </div>
+                        </div>
+                        <hr class="border-info border-opacity-10 my-3">
+                        <p class="smaller text-muted mb-0"><i class="bi bi-shield-check text-success me-2"></i>All satellite nodes operational.</p>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top -->
+    <button class="btn btn-icon-circle position-fixed bottom-0 end-0 m-4 z-3 d-none shadow-lg" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
