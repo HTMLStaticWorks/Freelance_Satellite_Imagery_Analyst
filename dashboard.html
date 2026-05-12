@@ -68,19 +68,31 @@
             padding-top: 120px; /* Space for the fixed header */
             min-height: 100vh;
         }
+        html, body {
+            padding-top: 0 !important;
+        }
         @media (max-width: 992px) {
             .dashboard-header-fixed {
-                left: 0;
-                padding: 10px 15px;
+                left: 0 !important;
+                padding: 8px 15px !important;
             }
             .dashboard-header-fixed h1, .dashboard-header-fixed h2 {
                 font-size: 1.1rem !important;
                 letter-spacing: 0.5px;
             }
             .dashboard-content {
-                margin-left: 0;
-                padding: 20px;
-                padding-top: 80px;
+                margin-left: 0 !important;
+                padding: 15px !important;
+                padding-top: 75px !important; /* Balanced gap for mobile header */
+            }
+            .welcome-card {
+                margin-bottom: 1.5rem !important;
+            }
+            .geo-card {
+                width: 100% !important;
+                max-width: 600px !important; /* Standardize card width on tablet */
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
             .gap-3 {
                 gap: 0.75rem !important;
@@ -384,7 +396,7 @@
         <!-- 1. OVERVIEW -->
         <section id="overview" class="dashboard-section active">
             <!-- Welcome Message -->
-            <div class="geo-card mb-4 border-info border-opacity-25 bg-secondary bg-opacity-20">
+            <div class="geo-card welcome-card mb-4 border-info border-opacity-25 bg-secondary bg-opacity-20">
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h2 class="h4 text-white mb-2">Welcome Back, <span class="text-info">Lead Analyst</span></h2>
@@ -948,8 +960,8 @@
                                 <input type="password" class="form-control bg-dark border-info border-opacity-25 text-white" placeholder="••••••••">
                             </div>
                         </div>
-                        <div class="mt-4 text-center text-md-start">
-                            <button class="btn btn-geo px-5 w-100 w-md-auto">Update Profile</button>
+                        <div class="mt-4 text-center text-lg-start">
+                            <button class="btn btn-geo px-5 w-100 w-lg-auto">Update Profile</button>
                         </div>
                     </div>
 
@@ -994,9 +1006,9 @@
 
                     <div class="geo-card mb-4 bg-secondary bg-opacity-20 border-info border-opacity-25">
                         <h5 class="h6 mb-3 text-uppercase opacity-75">Subscription Plan</h5>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex flex-column align-items-center flex-lg-row justify-content-lg-between gap-3 mb-3">
                             <div class="badge bg-info text-dark fw-bold px-3 py-2">ENTERPRISE PLUS</div>
-                            <span class="text-white fw-bold">$499/mo</span>
+                            <span class="text-white fw-bold fs-5">$499/mo</span>
                         </div>
                         <p class="smaller text-muted mb-4">Next billing date: June 15, 2024. Your plan includes unlimited AOI monitoring and high-res TIFF exports.</p>
                         <button class="btn btn-geo w-100 py-2">Manage Subscription</button>

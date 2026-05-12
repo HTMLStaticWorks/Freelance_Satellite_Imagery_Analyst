@@ -445,6 +445,31 @@ body.light-mode .nav-link.active {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px var(--grid-glow);
 }
 
+.service-card-img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Accordion Visibility Fixes */
+.accordion-button {
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--aurora-cyan) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button::after {
+    filter: invert(1) brightness(2);
+}
+
+.accordion-item {
+    background-color: transparent !important;
+}
+
 /* Buttons */
 .btn-geo {
     background: var(--aurora-cyan);
@@ -885,5 +910,110 @@ body.light-mode .pipeline-step::before {
     /* Hero alignment overrides */
     .hero-section {
         text-align: center !important;
+    }
+}
+
+/* Floating Data Cards */
+.floating-data {
+    position: absolute;
+    z-index: 10;
+    min-width: 140px;
+    transition: var(--transition);
+}
+
+.floating-data-top {
+    top: 0;
+    left: 0;
+    transform: translate(-20%, -20%);
+}
+
+.floating-data-bottom {
+    bottom: 0;
+    right: 0;
+    transform: translate(20%, 20%);
+}
+
+@media (max-width: 767px) {
+    .floating-data-top {
+        transform: translate(0, -10%);
+        left: 10px;
+    }
+    
+    .floating-data-bottom {
+        transform: translate(0, 10%);
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-data {
+        min-width: 120px;
+        padding: 0.5rem !important;
+    }
+    
+    .floating-data-top {
+        top: -10px;
+        left: 0;
+    }
+    
+    .floating-data-bottom {
+        bottom: -10px;
+        right: 0;
+    }
+}
+
+/* Navbar Collapse Override for 1024px (iPad Pro) */
+@media (max-width: 1024px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+    }
+    .navbar-expand-lg .navbar-collapse.show {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-basis: 100%;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 1.5rem 0 0 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    .navbar-expand-lg .navbar-nav .nav-item {
+        width: 100% !important;
+    }
+    .navbar-expand-lg .navbar-collapse > .d-flex {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1.5rem 0 !important;
+        margin: 0 !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    .navbar-expand-lg .navbar-collapse .btn-icon-circle {
+        margin: 0 !important;
+        flex: 0 0 auto !important;
+    }
+    .navbar-expand-lg .navbar-collapse .btn-geo {
+        margin-left: 0 !important;
+        flex: 0 0 auto !important;
+    }
+    .navbar-expand-lg .container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
     }
 }

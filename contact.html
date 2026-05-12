@@ -67,66 +67,143 @@
     <section class="section-padding bg-secondary bg-opacity-30">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="geo-card">
-                        <form>
-                            <div class="row g-3">
+                <div class="col-lg-8">
+                    <div class="geo-card h-100">
+                        <form class="h-100 d-flex flex-column justify-content-between">
+                            <div class="row g-4">
                                 <div class="col-md-6">
-                                    <label class="form-label small">Full Name</label>
-                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white" required>
+                                    <label class="form-label small text-info opacity-75">Full Name</label>
+                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white py-3" placeholder="John Doe" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small">Organization</label>
-                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white">
+                                    <label class="form-label small text-info opacity-75">Organization</label>
+                                    <input type="text" class="form-control bg-dark border-info border-opacity-25 text-white py-3" placeholder="Agency / Corporation">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-info opacity-75">Email Address</label>
+                                    <input type="email" class="form-control bg-dark border-info border-opacity-25 text-white py-3" placeholder="secure@email.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-info opacity-75">Phone Number</label>
+                                    <input type="tel" class="form-control bg-dark border-info border-opacity-25 text-white py-3" placeholder="+1 (000) 000-0000">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-info opacity-75">Sector</label>
+                                    <select class="form-select bg-dark border-info border-opacity-25 text-white py-3">
+                                        <option selected disabled>Select Industry</option>
+                                        <option>Defense & Intelligence</option>
+                                        <option>Precision Agriculture</option>
+                                        <option>Environmental Monitoring</option>
+                                        <option>Urban Planning</option>
+                                        <option>Disaster Response</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-info opacity-75">Primary Service</label>
+                                    <select class="form-select bg-dark border-info border-opacity-25 text-white py-3">
+                                        <option selected disabled>Select Service</option>
+                                        <option>Spectral Analysis</option>
+                                        <option>Change Detection</option>
+                                        <option>AOI Monitoring</option>
+                                        <option>Temporal Intelligence</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="form-label small">Email Address</label>
-                                    <input type="email" class="form-control bg-dark border-info border-opacity-25 text-white" required>
+                                    <label class="form-label small text-info opacity-75">Project Description / AOI Coordinates</label>
+                                    <textarea class="form-control bg-dark border-info border-opacity-25 text-white" rows="6" placeholder="Please describe your analytical requirements or provide geographic coordinates (Lat/Long)..." required></textarea>
                                 </div>
-                                <div class="col-md-12">
-                                    <label class="form-label small">Project Description / AOI Coordinates</label>
-                                    <textarea class="form-control bg-dark border-info border-opacity-25 text-white" rows="5" required></textarea>
-                                </div>
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-geo w-100 py-3">Submit Secure Inquiry</button>
-                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <button type="submit" class="btn btn-geo w-100 py-3 fs-6">
+                                    <i class="bi bi-shield-lock-fill me-2"></i>SUBMIT SECURE INQUIRY
+                                </button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="geo-card mb-4">
-                        <h4 class="h6 mb-4">INTEL HUB</h4>
-                        <div class="d-flex gap-3 mb-4">
-                            <i class="bi bi-geo-alt text-info fs-4"></i>
-                            <div>
-                                <h5 class="small fw-bold mb-1">Global Headquarters</h5>
-                                <p class="smaller text-muted mb-0">San Francisco, CA, USA (Remote Operations)</p>
+                <div class="col-lg-4">
+                    <div class="geo-card h-100 text-center text-lg-start">
+                        <h4 class="h5 mb-4 text-info">INTEL HUB</h4>
+                        
+                        <div class="mb-5 pb-2 border-bottom border-info border-opacity-10">
+                            <h6 class="smaller text-white text-uppercase tracking-widest opacity-50 mb-4">Primary Contact</h6>
+                            <div class="d-flex flex-column align-items-center flex-lg-row align-items-lg-start gap-3 mb-4">
+                                <i class="bi bi-geo-alt text-info fs-4"></i>
+                                <div>
+                                    <h5 class="small fw-bold mb-1">Global Headquarters</h5>
+                                    <p class="smaller text-muted mb-0">San Francisco, CA, USA (Remote Operations)</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column align-items-center flex-lg-row align-items-lg-start gap-3 mb-4">
+                                <i class="bi bi-envelope text-info fs-4"></i>
+                                <div>
+                                    <h5 class="small fw-bold mb-1">Secure Email</h5>
+                                    <p class="smaller text-muted mb-0">intel@geointel-analytics.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column align-items-center flex-lg-row align-items-lg-start gap-3">
+                                <i class="bi bi-phone text-info fs-4"></i>
+                                <div>
+                                    <h5 class="small fw-bold mb-1">Direct Line</h5>
+                                    <p class="smaller text-muted mb-0">+1 (555) 000-INTEL</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex gap-3 mb-4">
-                            <i class="bi bi-envelope text-info fs-4"></i>
-                            <div>
-                                <h5 class="small fw-bold mb-1">Secure Email</h5>
-                                <p class="smaller text-muted mb-0">intel@geointel-analytics.com</p>
+
+                        <div class="mb-5 pb-2 border-bottom border-info border-opacity-10">
+                            <h6 class="smaller text-white text-uppercase tracking-widest opacity-50 mb-4">Operational Status</h6>
+                            <div class="d-flex flex-column align-items-center flex-lg-row align-items-lg-start gap-3 mb-4">
+                                <div class="stat-pulse mt-1"></div>
+                                <div>
+                                    <h5 class="small fw-bold mb-1">24/7 Monitoring Active</h5>
+                                    <p class="smaller text-muted mb-0">Persistent orbital surveillance across all time zones.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column align-items-center flex-lg-row align-items-lg-start gap-3">
+                                <i class="bi bi-shield-lock text-info fs-4"></i>
+                                <div>
+                                    <h5 class="small fw-bold mb-1">Emergency Tasking</h5>
+                                    <p class="smaller text-muted mb-0">Priority processing for humanitarian and critical infrastructure alerts.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex gap-3">
-                            <i class="bi bi-phone text-info fs-4"></i>
-                            <div>
-                                <h5 class="small fw-bold mb-1">Direct Line</h5>
-                                <p class="smaller text-muted mb-0">+1 (555) 000-INTEL</p>
+
+                        <div>
+                            <h6 class="smaller text-white text-uppercase tracking-widest opacity-50 mb-4">Social Intelligence</h6>
+                            <div class="d-flex justify-content-center justify-content-lg-start gap-4">
+                                <a href="#" class="btn btn-icon-circle" title="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-icon-circle" title="Twitter">
+                                    <i class="bi bi-twitter-x"></i>
+                                </a>
+                                <a href="#" class="btn btn-icon-circle" title="GitHub">
+                                    <i class="bi bi-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="geo-card bg-secondary">
-                        <h4 class="h6 mb-3">SOCIAL INTELLIGENCE</h4>
-                        <div class="d-flex gap-2">
-                            <a href="#" class="text-info fs-5 hover-glow"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" class="text-info fs-5 hover-glow ms-2"><i class="bi bi-github"></i></a>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <section class="section-padding pt-0">
+        <div class="container">
+            <div class="overflow-hidden border border-info border-opacity-10 shadow-lg rounded-4 bg-transparent p-2">
+                <div class="rounded-3 overflow-hidden position-relative" style="height: 400px;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835453051416!2d-122.41941548468248!3d37.77492957975922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050c62!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: invert(90%) hue-rotate(180deg) grayscale(30%) brightness(0.9) contrast(1.2);" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    <div class="position-absolute top-0 end-0 m-4 glass-panel p-3">
+                        <div class="small text-info fw-bold mb-1 text-end">HQ_LOCATION_SYNC</div>
+                        <div class="smaller text-white opacity-75 text-end">37.7749° N, 122.4194° W</div>
                     </div>
                 </div>
             </div>
