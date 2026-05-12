@@ -45,9 +45,9 @@ html, body {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     html, body {
-        padding-top: 70px;
+        padding-top: 30px !important;
     }
 }
 
@@ -346,6 +346,32 @@ footer.section-padding {
 .hover-glow:hover {
     color: var(--aurora-cyan) !important;
     text-decoration: underline !important;
+}
+
+/* Footer Social Icon Highlight */
+.footer a.hover-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    background: rgba(34, 211, 238, 0.08);
+    transition: var(--transition);
+}
+
+.footer a.hover-glow:hover {
+    color: var(--bg-secondary) !important;
+    background: var(--aurora-cyan);
+    border-color: var(--aurora-cyan);
+    text-decoration: none !important;
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2);
+    transform: translateY(-2px);
+}
+
+body.light-mode .footer a.hover-glow:hover {
+    color: #ffffff !important;
 }
 
 /* Social Buttons */
@@ -849,6 +875,14 @@ body.light-mode .pipeline-step::before {
         margin-top: 1rem;
     }
 
+    /* Prevent global .btn auto margins from breaking centered navbar action row */
+    .navbar-collapse .btn,
+    .navbar-collapse .badge {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: auto !important;
+    }
+
     /* Prevent icon squashing */
     .btn-icon-circle {
         flex-shrink: 0 !important;
@@ -911,6 +945,30 @@ body.light-mode .pipeline-step::before {
     .hero-section {
         text-align: center !important;
     }
+
+
+
+    body.auth-page .geo-card .auth-options-row.d-flex {
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+    }
+    body.auth-page .geo-card .auth-options-row .form-check {
+        margin-bottom: 0 !important;
+    }
+    body.auth-page .geo-card .auth-options-row a {
+        text-align: right !important;
+        flex-shrink: 0;
+    }
+    body.auth-page .auth-submit-btn.btn {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }
 
 /* Floating Data Cards */
@@ -942,6 +1000,8 @@ body.light-mode .pipeline-step::before {
     .floating-data-bottom {
         transform: translate(0, 10%);
         right: 10px;
+    }
+
     }
 }
 
@@ -1007,7 +1067,7 @@ body.light-mode .pipeline-step::before {
         flex: 0 0 auto !important;
     }
     .navbar-expand-lg .navbar-collapse .btn-geo {
-        margin-left: 0 !important;
+        margin: 0 !important;
         flex: 0 0 auto !important;
     }
     .navbar-expand-lg .container {

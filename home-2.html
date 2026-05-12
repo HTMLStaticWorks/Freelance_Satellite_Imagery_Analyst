@@ -55,6 +55,11 @@
                 margin-right: auto;
             }
         }
+        @media (max-width: 1024px) {
+            .split-hero {
+                padding-top: 0 !important;
+            }
+        }
         .analytics-floating-pane {
             position: absolute;
             top: 20%;
@@ -223,6 +228,9 @@
         body.light-mode .analytics-floating-pane .text-white,
         body.light-mode .hero-right .text-white {
             color: #ffffff !important;
+        }
+        body.light-mode .analytics-floating-pane .text-muted {
+            color: rgba(255, 255, 255, 0.82) !important;
         }
         body.light-mode .res-comparison-card .badge.bg-dark {
             background-color: rgba(255, 255, 255, 0.9) !important;

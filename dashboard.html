@@ -101,6 +101,52 @@
                 gap: 0.4rem !important;
             }
         }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #imagery .geo-card {
+                display: flex;
+                flex-direction: column;
+            }
+            #imagery .geo-card .p-3 {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+            #imagery .geo-card .btn.btn-geo {
+                margin-top: auto;
+                width: 100% !important;
+            }
+        }
+        #downloads .asset-name-cell .asset-icon-slot {
+            display: inline-flex;
+            width: 1.25rem;
+            justify-content: center;
+            vertical-align: middle;
+            margin-right: 0.5rem !important;
+        }
+        #downloads .asset-name-cell .asset-icon-slot i {
+            line-height: 1;
+        }
+        #downloads .asset-name-cell .asset-name-wrap {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        @media (max-width: 1024px) {
+            #downloads,
+            #downloads .table,
+            #downloads .table th,
+            #downloads .table td {
+                text-align: left !important;
+            }
+            #downloads .table th.text-center,
+            #downloads .table td.text-center {
+                text-align: center !important;
+            }
+            #downloads .asset-name-cell .asset-name-wrap {
+                justify-content: flex-start;
+                width: 100%;
+            }
+        }
 
         /* Light Mode Overrides for Dashboard */
         body.light-mode .dashboard-sidebar {
@@ -806,7 +852,7 @@
                     </thead>
                     <tbody style="border-top: none;">
                         <tr class="geo-table-row shadow-sm">
-                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-pdf text-danger me-2 fs-5"></i>NDVI_Amazon_B_Full.pdf</td>
+                            <td class="asset-name-cell ps-4 py-3 border-0 fw-bold text-white"><span class="asset-name-wrap"><span class="asset-icon-slot"><i class="bi bi-file-earmark-pdf text-danger fs-5"></i></span><span>NDVI_Amazon_B_Full.pdf</span></span></td>
                             <td class="py-3 border-0"><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-3 py-2">PDF</span></td>
                             <td class="py-3 border-0 text-muted">4.2 MB</td>
                             <td class="py-3 border-0 text-muted small">May 10, 2024 | 14:22 GMT</td>
@@ -815,7 +861,7 @@
                             </td>
                         </tr>
                         <tr class="geo-table-row shadow-sm">
-                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-zip text-warning me-2 fs-5"></i>Terrain_Dubai_Mesh.zip</td>
+                            <td class="asset-name-cell ps-4 py-3 border-0 fw-bold text-white"><span class="asset-name-wrap"><span class="asset-icon-slot"><i class="bi bi-file-earmark-zip text-warning fs-5"></i></span><span>Terrain_Dubai_Mesh.zip</span></span></td>
                             <td class="py-3 border-0"><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 px-3 py-2">ZIP</span></td>
                             <td class="py-3 border-0 text-muted">128 MB</td>
                             <td class="py-3 border-0 text-muted small">May 08, 2024 | 09:12 GMT</td>
@@ -824,7 +870,7 @@
                             </td>
                         </tr>
                         <tr class="geo-table-row shadow-sm">
-                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-spreadsheet text-success me-2 fs-5"></i>Crop_Yield_Report_2024.csv</td>
+                            <td class="asset-name-cell ps-4 py-3 border-0 fw-bold text-white"><span class="asset-name-wrap"><span class="asset-icon-slot"><i class="bi bi-file-earmark-spreadsheet text-success fs-5"></i></span><span>Crop_Yield_Report_2024.csv</span></span></td>
                             <td class="py-3 border-0"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2">CSV</span></td>
                             <td class="py-3 border-0 text-muted">1.8 MB</td>
                             <td class="py-3 border-0 text-muted small">May 05, 2024 | 16:45 GMT</td>
@@ -833,7 +879,7 @@
                             </td>
                         </tr>
                         <tr class="geo-table-row shadow-sm">
-                            <td class="ps-4 py-3 border-0 fw-bold text-white"><i class="bi bi-file-earmark-image text-info me-2 fs-5"></i>Sector_G_Annotated.tiff</td>
+                            <td class="asset-name-cell ps-4 py-3 border-0 fw-bold text-white"><span class="asset-name-wrap"><span class="asset-icon-slot"><i class="bi bi-file-earmark-image text-info fs-5"></i></span><span>Sector_G_Annotated.tiff</span></span></td>
                             <td class="py-3 border-0"><span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 px-3 py-2">TIFF</span></td>
                             <td class="py-3 border-0 text-muted">45.5 MB</td>
                             <td class="py-3 border-0 text-muted small">May 02, 2024 | 11:30 GMT</td>
