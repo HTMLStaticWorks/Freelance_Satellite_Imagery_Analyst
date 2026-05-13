@@ -609,6 +609,57 @@ body.light-mode .btn-icon-circle:hover {
     min-height: 100vh;
 }
 
+/* Auth pages (login/signup): prevent viewport scrolling */
+html.auth-root,
+body.auth-page {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+html.auth-root body.auth-page {
+    min-height: 100dvh !important;
+    height: 100dvh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html.auth-root body.auth-page .auth-top-controls {
+    top: calc(env(safe-area-inset-top) + 10px) !important;
+    right: 12px !important;
+    margin: 0 !important;
+}
+
+/* Dashboard report row/link interactions */
+.report-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.report-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+}
+
+.report-link:hover::after,
+.report-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
 @media (max-width: 992px) {
     .dashboard-sidebar {
         transform: translateX(-100%);
@@ -619,6 +670,25 @@ body.light-mode .btn-icon-circle:hover {
     .dashboard-content {
         margin-left: 0;
         padding: 20px;
+    }
+
+    .report-meta-row {
+        width: 100%;
+        justify-content: space-between !important;
+        align-items: center;
+        text-align: initial !important;
+    }
+
+    .report-meta-row .report-period {
+        text-align: left !important;
+        margin-right: auto !important;
+    }
+
+    .report-meta-row .report-link {
+        text-align: right !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        justify-content: flex-end;
     }
 }
 
@@ -939,6 +1009,24 @@ body.light-mode .pipeline-step::before {
         max-width: 450px;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+
+    /* Auth pages: reduce top empty space while keeping clear gap from top-right controls */
+    html.auth-root body.auth-page {
+        min-height: 100dvh !important;
+        height: 100dvh;
+        align-items: center !important;
+        padding-top: 72px;
+        padding-bottom: 24px;
+    }
+
+    body.auth-page .container {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    body.auth-page .geo-card {
+        margin-top: 0 !important;
     }
 
     /* Hero alignment overrides */
