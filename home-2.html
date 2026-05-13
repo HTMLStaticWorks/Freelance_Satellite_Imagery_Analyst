@@ -224,6 +224,30 @@
             color: #22d3ee !important;
             border: 1px solid rgba(34, 211, 238, 0.3);
         }
+
+        /* Repository badge contrast fix: THERMAL + LOGISTICS */
+        .repository-meta .badge.bg-danger.bg-opacity-20 {
+            background-color: rgba(127, 29, 29, 0.85) !important;
+            color: #fee2e2 !important;
+            border: 1px solid rgba(248, 113, 113, 0.7) !important;
+        }
+        .repository-meta .badge.bg-warning.bg-opacity-20 {
+            background-color: rgba(113, 63, 18, 0.88) !important;
+            color: #fef08a !important;
+            border: 1px solid rgba(250, 204, 21, 0.65) !important;
+        }
+
+        body.light-mode .repository-meta .badge.bg-danger.bg-opacity-20 {
+            background-color: rgba(254, 226, 226, 0.95) !important;
+            color: #991b1b !important;
+            border: 1px solid rgba(220, 38, 38, 0.35) !important;
+        }
+        body.light-mode .repository-meta .badge.bg-warning.bg-opacity-20 {
+            background-color: rgba(254, 249, 195, 0.96) !important;
+            color: #854d0e !important;
+            border: 1px solid rgba(202, 138, 4, 0.45) !important;
+        }
+
         /* Force hero-right overlay text to stay white in light mode */
         body.light-mode .analytics-floating-pane .text-white,
         body.light-mode .hero-right .text-white {
