@@ -609,23 +609,41 @@ body.light-mode .btn-icon-circle:hover {
     min-height: 100vh;
 }
 
-/* Auth pages (login/signup): prevent viewport scrolling */
+/* Auth pages (login/signup): allow scrolling */
 html.auth-root,
 body.auth-page {
     margin: 0;
     width: 100%;
-    min-height: 100%;
-    height: 100%;
-    overflow: hidden;
-    overscroll-behavior: none;
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    overscroll-behavior: auto;
 }
 
 html.auth-root body.auth-page {
-    min-height: 100dvh !important;
-    height: 100dvh;
+    min-height: 100vh !important;
     box-sizing: border-box;
-    overflow: hidden;
+    display: flex !important;
+    flex-direction: column;
 }
+
+/* Ensure content is centered if it fits, but scrollable if it doesn't */
+html.auth-root body.auth-page > .container {
+    margin: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+/* Lightly expand auth card width at 1024px */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .auth-page .col-lg-4 {
+        flex: 0 0 auto;
+        width: 40%;
+    }
+}
+
 
 html.auth-root body.auth-page .auth-top-controls {
     top: calc(env(safe-area-inset-top) + 10px) !important;
@@ -1088,8 +1106,6 @@ body.light-mode .pipeline-step::before {
     .floating-data-bottom {
         transform: translate(0, 10%);
         right: 10px;
-    }
-
     }
 }
 
